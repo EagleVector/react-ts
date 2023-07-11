@@ -1,5 +1,6 @@
 import React from 'react';
 import Todo from './components/Todo';
+import Counter from './components/Counter';
 
 const myTodoItems = [
   {
@@ -17,7 +18,6 @@ const myTodoItems = [
 ];
 
 
-
 const App: React.FC = () => {
   return (
     // Sending props in html
@@ -30,6 +30,10 @@ const App: React.FC = () => {
 
     <div>
       <Todo items={myTodoItems} /> 
+      <Counter />
+      <Counter />
+      <Counter />
+      <Counter />
     </div>
   );
 };
