@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 // import Todo from './components/Todo';
 // import Counter from './components/Counter';
 
@@ -23,13 +24,20 @@ interface TodoItem {
   title: string;
   userId: number
 }
+// function App() {
+//   const [todos, setTodos] = useState<TodoItem[]>([]);
+//   useEffect(() => {
+//     fetch('https://jsonplaceholder.typicode.com/todos')
+//     .then((response) => response)
+//     .then((e) => e.json())
+//     .then((e) => setTodos(e as TodoItem[]));
+//   }, []);
+
 function App() {
   const [todos, setTodos] = useState<TodoItem[]>([]);
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos')
-    .then((response) => response)
-    .then((e) => e.json())
-    .then((e) => setTodos(e as TodoItem[]));
+    axios.get<TodoItem[]>('https://jsonplaceholder.typicode.com/todos')
+    .then((response) => setTodos(response.data));
   }, []);
 
   // const [ state, setState ] = useState<boolean>(true);
