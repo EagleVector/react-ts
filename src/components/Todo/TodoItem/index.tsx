@@ -6,7 +6,6 @@ interface TodoItemProps {
 }
 
 const TodoItem: React.FC<TodoItemProps> = (props) => {
-  console.log(props);
   return <li>{props.title}</li>;
 };
 
